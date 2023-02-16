@@ -1,9 +1,11 @@
 using Grpc.Core;
 using GrpcSample;
+using GrpcSample.Contracts;
+using ProtoBuf.Grpc;
 
 namespace GrpcSample.Services
 {
-    public class GreeterService : Greeter.GreeterBase
+    public class GreeterService : IGreeterService//Greeter.GreeterBase
     {
         private readonly ILogger<GreeterService> _logger;
         private readonly Counter counter;
@@ -15,7 +17,8 @@ namespace GrpcSample.Services
             this.counter = counter;
         }
 
-        public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+        //public override Task<HelloReply> SayHello(HelloRequest request, ServerCallContext context)
+        public Task<HelloReply> SayHello(HelloRequest request, CallContext context = default)
         {
             return Task.FromResult(new HelloReply
             {

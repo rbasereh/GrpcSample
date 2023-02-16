@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -6,12 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.123" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GrpcSample.Contracts\GrpcSample.Contracts.csproj" />
   </ItemGroup>
 
 </Project>
