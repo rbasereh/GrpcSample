@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using ProtoBuf;
 using ProtoBuf.Grpc;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -16,20 +17,23 @@ namespace GrpcSample.Contracts
 
     }
 
-    [DataContract]
+    [ProtoContract]
     public class HelloRequest
     {
-        [DataMember(Order = 1)]
+        [ProtoMember(1)]
         public string Name { get; set; }
 
-        [DataMember(Order = 2)]
+        [ProtoMember(2)]
         public string LastName { get; set; }
     }
 
-    [DataContract]
+    [ProtoContract]
     public class HelloReply
     {
-        [DataMember(Order = 1)]
+        [ProtoMember(1)]
         public string Message { get; set; }
+
+        [ProtoMember(2)]
+        public int Count { get; set; }
     }
 }

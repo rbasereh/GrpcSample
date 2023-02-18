@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,7 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\Protos\Greet.cs" />
+    <Compile Include="obj\Debug\net6.0\Protos\Greet2.cs" />
+    <Compile Include="obj\Debug\net6.0\Protos\Greet2Grpc.cs" />
+    <Compile Include="obj\Debug\net6.0\Protos\GreetGrpc.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.21.12" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.49.0" />
     <PackageReference Include="Grpc.Net.Client" Version="2.51.0" />
     <PackageReference Include="Grpc.Tools" Version="2.51.0">
       <PrivateAssets>all</PrivateAssets>
@@ -15,6 +23,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Protobuf Include="Protos\greet2.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\greet.proto" GrpcServices="Client" />
   </ItemGroup>
 </Project>

@@ -1,3 +1,5 @@
+using System.IO.Pipes;
+
 namespace GrpcSampleClient
 {
     public class WeatherForecast
@@ -10,4 +12,12 @@ namespace GrpcSampleClient
 
         public string? Summary { get; set; }
     }
+}
+namespace GrpcSample
+{
+    public partial class HelloRequest
+    {
+
+    }
+
 }

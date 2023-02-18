@@ -6,12 +6,17 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Protos\greet.cs" />
+  </ItemGroup>
+
   <!--<ItemGroup>
     <Protobuf Include="Protos\greet.proto" GrpcServices="Server" />
   </ItemGroup>-->
 
   <ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    <PackageReference Include="protobuf-net" Version="3.1.33" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="protobuf-net.Grpc.AspNetCore" Version="1.0.123" />

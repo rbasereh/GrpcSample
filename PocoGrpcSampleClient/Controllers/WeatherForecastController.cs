@@ -1,4 +1,9 @@
+using Grpc.Net.Client;
+using GrpcSample.Contracts;
 using Microsoft.AspNetCore.Mvc;
+using ProtoBuf.Grpc.Client;
+//using ProtoBuf.Grpc.Client;
+using System.Threading.Channels;
 
 namespace PocoGrpcSampleClient.Controllers
 {
@@ -19,15 +24,14 @@ namespace PocoGrpcSampleClient.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public async Task<HelloReply> Get()
         {
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = Random.Shared.Next(-20, 55),
-                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-            })
-            .ToArray();
+            GrpcClientFactory.AllowUnencryptedHttp2 = true;
+            using var channel = GrpcChannel.ForAddress("https://localhost:7106");
+            var client = channel.CreateGrpcService<IGreeterService>();
+            var reply = await client.SayHello(new HelloRequest { Name = "GreeterClient", LastName = "lastName" });
+
+            return reply;
         }
     }
 }

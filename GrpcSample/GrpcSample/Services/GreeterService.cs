@@ -22,7 +22,8 @@ namespace GrpcSample.Services
         {
             return Task.FromResult(new HelloReply
             {
-                Message = $"Hello {request.Name} {request.LastName} - {counter.Count}"
+                Message = $"Hello {request.Name} {request.LastName} - {counter.Count}",
+                Count = counter.Count
             });
         }
     }
