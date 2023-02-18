@@ -2,7 +2,6 @@ using Grpc.Net.Client;
 using GrpcSample.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using ProtoBuf.Grpc.Client;
-//using ProtoBuf.Grpc.Client;
 using System.Threading.Channels;
 
 namespace PocoGrpcSampleClient.Controllers
